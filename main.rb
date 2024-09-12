@@ -1,5 +1,5 @@
-require_relative 'lib/grid'
-require_relative 'lib/display_tools'
+require_relative "lib/grid"
+require_relative "lib/display_tools"
 
 # create grid instance
 
