@@ -1,5 +1,5 @@
 module DisplayTools
-  def getPlayerChoice; end
+  def player_choice; end
 
-  def displayWin; end
+  def display_win; end
 end
