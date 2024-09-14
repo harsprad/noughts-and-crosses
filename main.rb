@@ -1,12 +1,20 @@
 require_relative "lib/grid"
 require_relative "lib/display_tools"
 
-# create grid instance
+include DisplayTools
 
-# ask for input and insert into grid instance
+ttt = Grid.new
 
-# display grid
+loop do
+  while ttt.add(*DisplayTools.player_choice) == "error"
+    puts "\nAlready played there, please choose another place to play"
+  end
 
-# check if there is a winner
+  puts ttt.to_pretty_string
 
-# display appropriate text then loop if necessary
+  winner_exists = ttt.winner?
+  DisplayTools.round_end(winner_exists)
+  break if winner_exists
+end
+
+puts "Game Ended, gg wp"

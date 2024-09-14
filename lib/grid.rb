@@ -50,12 +50,13 @@ class Grid
       rotated_grid[0][i] = @grid[i][i]
       rotated_grid[1][i] = @grid[2 - i][i]
     end
+    rotated_grid
   end
 
   def row_win?(grid)
     size = grid.length
     (0..(size - 1)).each do |i|
-      return true if grid[i].uniq.length == 1
+      return true if (grid[i] == Array.new(3){ "O" } || grid[i] == Array.new(3){ "X" }) 
     end
     false
   end
