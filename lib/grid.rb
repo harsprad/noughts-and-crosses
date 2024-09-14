@@ -6,7 +6,17 @@ class Grid
     @grid = Array.new(3) { Array.new(3) }
   end
 
-  def to_pretty_string; end
+  def to_pretty_string
+    pretty_s = ""
+    (0..2).each do |i|
+      (0..2).each do |j|
+        pretty_s.concat(" ", (@grid[i][j] || " "), " |")
+      end
+      pretty_s.delete_suffix!("|")
+      pretty_s.concat("\n-----------\n")
+    end
+    pretty_s.delete_suffix("\n-----------\n")
+  end
 
   def add(row, col)
     return "error" unless @grid[row - 1][col - 1].nil?
