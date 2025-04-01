@@ -12,6 +12,25 @@ describe Grid do
       actual_grid_value = grid.grid[0][0]
       expect(actual_grid_value).to eq("O")
     end
+
+    it 'player number remains the same after two turns' do
+      before_player = grid.current_player
+      grid.add(1, 1)
+      grid.add(1, 2)
+      after_player = grid.current_player
+      expect(before_player).to eq(after_player)
+    end
+
+    it 'player number changes after five turns' do
+      before_player = grid.current_player
+      grid.add(1, 1)
+      grid.add(3, 3)
+      grid.add(2, 3)
+      grid.add(1, 3)
+      grid.add(1, 2)
+      after_player = grid.current_player
+      expect(before_player).not_to eq(after_player)
+    end
   end
 
   describe '#row_win?' do
